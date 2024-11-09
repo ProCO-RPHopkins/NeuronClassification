@@ -46,7 +46,7 @@ Here's an example of the generated neuron data
 | 4  | 60          | Inhibitory |
 | 5  | 130         | Excitatory |
 
-In this table
+#### In this table
     *id: A unique identifier for each neuron.
     *firing_rate: The number of times the neuron fires within a given period.
     *class: The type of neuron (either “Excitatory” or “Inhibitory”)
