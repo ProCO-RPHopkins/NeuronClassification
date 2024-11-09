@@ -116,4 +116,4 @@ This project helps you understand how to use Julia to create a neural network th
 
 ## License
 
-This project is licensed under the MIT License [MIT License](https://github.com/Bloomberg-Beta/Manual?tab=readme-ov-file). See the [LICENSE](https://github.com/Bloomberg-Beta/Manual?tab=readme-ov-file) file for details.
+This project is licensed under the MIT License [MIT License](LICENSE). See the [LICENSE](https://github.com/Bloomberg-Beta/Manual?tab=readme-ov-file) file for details.
