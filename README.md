@@ -27,7 +27,7 @@ This project demonstrates how to classify neurons based on their firing patterns
 ### Neuron Firing Patterns
 
 1. Firing Rate
-    * The firing rate is a number that represents how frequently a neuron fires or sends signals. In our synthetic dataset, this value is randomly chosen between 50 and 150.
+    * The firing rate is a number that represents how frequently a neuron fires or sends signals. In the synthetic dataset, this value is randomly chosen between 50 and 150.
     * For example, a firing rate of 75 means the neuron fires 75 times within a certain period.
 2. Neuron Types
     * Each neuron is classified as either “Excitatory” or “Inhibitory”.
