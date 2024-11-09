@@ -78,7 +78,7 @@ Here's an example of the generated neuron data
 
 ## Output
 
-When you run the code, you will see:
+When you run the code, you will see
 
 * **Initial Data**: A preview of the first few rows of the generated neuron data.
 
