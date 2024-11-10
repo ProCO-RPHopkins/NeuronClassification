@@ -1,5 +1,6 @@
 using Random, CSV, DataFrames
 
+# Function to generate synthetic data
 function generate_data(n:: Int)
     data = DataFrame(id = 1:n, firing_rate = rand(50:150, n), class = rand(["Excitatory", "Inhibitory"], n))
     CSV.write("neuron_data.csv", data)
@@ -49,10 +50,11 @@ loss(model, x, y) = Flux.crossentropy(model(x), y)
 opt = Flux.setup(Optimisers.ADAM(), model)
 
 # Training loop
-data = [(X_train, y_train)]
+train_data_tuple = [(X_train, y_train)]
 parameters = Flux.params(model)
 for epoch in 1:100
-    Flux.train!(loss, params(model), data, opt)
+    Flux.train!(loss, params(model), train_data_tuple, opt)
+
 end
 
 # Print the trained model
@@ -70,3 +72,27 @@ y_pred_labels = Flux.onecold(y_pred, ["Excitatory", "Inhibitory"])
 # Evaluating the model - calculate accuracy
 accuracy = mean(y_pred_labels .== y_test)
 println("Model Accuracy: ", accuracy)
+
+# Unable to run the plot because of permissions restrictions!!!
+# Visualize the data
+using Plots
+pyplot()
+
+# Plot the data
+scatter(data.id, data.firing_rate, group=data.class, legend=:top, title="Neuron Firing Rates", xlabel="Neuron ID", ylabel="Firing Rate")
+
+# Save the first plot
+savefig("neuron_firing_rates.png")
+
+# Add predictions to the test data
+test_data.predicted_class = y_pred_labels
+
+# Plot the actual vs predicted classifications
+p = scatter(test_data.id, test_data.firing_rate, group=test_data.class, legend=:topright, title="Actual vs Predicted Classifications", xlabel="Neuron ID", ylabel="Firing Rate", label="Actual")
+scatter!(p, test_data.id, test_data.firing_rate, group=test_data.predicted_class, markershape=:cross, label="Predicted")
+
+# Save the second plot
+savefig(p, "actual_vs_predicted.png")
+
+# Display the plots
+display(p)
